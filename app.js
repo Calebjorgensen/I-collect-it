@@ -1,26 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongodb = require('./db/connect');
+
+const port = process.env.PORT || 3000;
 const app = express();
-const router = express.Router();
 
-router.get('/home', (req, res) => {
-    res.send("Hello World");
+app
+    .use(bodyParser.json())
+    .use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        next();
+    })
+    .use('/', require('./routes'));
+
+mongodb.initDb((err, mongodb) => {
+    if (err) {
+        console.log(err);
+    } else {
+        app.listen(port);
+        console.log(`Connected to DB and listening on ${port}`);
+    }
 });
-
-router.get('/profile', (req, res) => {
-    res.send("Profile Page");
-});
-
-router.get('/login', (req, res) => {
-    res.send("Login Page");
-});
-
-
-
-app.use(bodyParser.json());
-app.use('/', router);
-
-const port = 3000;
-
-app.listen(process.env.PORT || port);
-console.log("Web server is listening at port" + (process.env.PORT || port));

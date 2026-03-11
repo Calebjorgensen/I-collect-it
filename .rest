@@ -1,0 +1,12 @@
+GET http://localhost:3000/funko
+###
+GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de60
+###
+GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de61
+###
+GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de62
+###
+GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de63
+###
+GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de64
+###
