@@ -1,0 +1,32 @@
+[
+    {
+      "_id": "69b1b24ebb3c32bfbd45de64",
+      "name": "Captain America",
+      "universe": "Marvel",
+      "number": 6
+    },
+    {
+      "_id": "69b1b24ebb3c32bfbd45de60",
+      "name": "Spider-Man",
+      "universe": "Marvel",
+      "number": 3
+    },
+    {
+      "_id": "69b1b24ebb3c32bfbd45de63",
+      "name": "Wonder Woman",
+      "universe": "DC",
+      "number": 172
+    },
+    {
+      "_id": "69b1b24ebb3c32bfbd45de61",
+      "name": "Batman",
+      "universe": "DC",
+      "number": 1
+    },
+    {
+      "_id": "69b1b24ebb3c32bfbd45de62",
+      "name": "Iron Man",
+      "universe": "Marvel",
+      "number": 11
+    }
+  ]

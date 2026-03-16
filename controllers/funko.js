@@ -20,6 +20,68 @@ const getSingle = async (req, res, next) => {
         res.setHeader('Content-type', 'application/json');
         res.status(200).json(lists[0]);
     });
+
 };
 
-module.exports = { getAll, getSingle };
+const createFunko = async (req, res) => {
+    const funko = {
+        name: req.body.name,
+        universe: req.body.universe,
+        number: req.body.number
+    };
+    const response = await mongodb
+        .getDb()
+        .db()
+        .collection('Collect')
+        .insertOne(funko);
+    if(response.acknowledged) {
+        res.status(201).json(response);
+    } else {
+        res.status(500).json(response.error || 'Some error occured while creating the contact');
+    }
+};
+
+const updateFunko = async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    const funko = {
+        name: req.body.name,
+        universe: req.body.universe,
+        number: req.body.number
+    };
+    const response = await mongodb
+        .getDb()
+        .db()
+        .collection('Collect')
+        .replaceOne({_id: userId}, funko);
+    console.log(response);
+    if (response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Some error occured while updating the funko');
+    }
+};
+
+const deleteFunko = async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    const response = await mongodb
+        .getDb()
+        .db()
+        .collection('Collect')
+        .deleteOne({_id: userId}, true);
+        console.log(response);
+    if (response.deletedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Some error occured while deleting the funko');
+    }
+};
+
+
+
+module.exports = { 
+    getAll,
+    getSingle,
+    createFunko,
+    updateFunko,
+    deleteFunko
+ };

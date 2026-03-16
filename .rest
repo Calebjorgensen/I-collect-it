@@ -2,11 +2,58 @@ GET http://localhost:3000/funko
 ###
 GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de60
 ###
-GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de61
+
+POST http://localhost:3000/funko
+Content-Type: application/json
+
+{
+    "name": "Joel",
+    "universe": "The Last of Us",
+    "number": 1
+}
 ###
-GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de62
+
+PUT http://localhost:3000/funko/69b1b24ebb3c32bfbd45de63
+Content-Type: application/json
+
+{
+    "name": "Wonder Woman",
+    "universe": "DC",
+    "number": 83
+}
+
 ###
-GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de63
+DELETE http://localhost:3000/funko/69b86e95131321d1a6bf1171
+Content-Type: application/json
+
+
+
+
+
+
 ###
-GET http://localhost:3000/funko/69b1b24ebb3c32bfbd45de64
+GET https://i-collect-it.onrender.com/funko
 ###
+
+POST https://i-collect-it.onrender.com/funko
+Content-Type: application/json
+
+{
+    "name": "Joel",
+    "universe": "The Last of Us",
+    "number": 1
+}
+###
+
+PUT https://i-collect-it.onrender.com/funko/69b1b24ebb3c32bfbd45de63
+Content-Type: application/json
+
+{
+    "name": "Wonder Woman",
+    "universe": "DC",
+    "number": 83
+}
+
+###
+DELETE https://i-collect-it.onrender.com/funko
+Content-Type: application/json
